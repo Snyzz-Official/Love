@@ -1,0 +1,11 @@
+Place ici tes photos : 1.jpg, 2.jpg, …, 35.jpg.
+Extensions reconnues : jpg, jpeg, png, webp (minuscules ou majuscules).
+Aucune photo n’était jointe au fichier HTML d’origine.
+Pour changer le nombre de photos, modifie PHOTO_COUNT au début de script.js.
+
+Décompresse tout le ZIP, puis ouvre index.html.
+La lectrice peut seulement tourner les pages et agrandir les photos.
+Aucun bouton d’ajout de photo ni champ modifiable n’est présent.
+Les photos absentes laissent un cadre avec un cœur.
+La lettre et les 457 mots sont répartis sur des pages selon la taille de l’écran.
+Les polices Google nécessitent Internet ; sinon les polices de secours sont utilisées.

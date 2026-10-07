@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#240c16"><link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>❤</text></svg>"><title>Notre première année</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Special+Elite&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="hearts" id="hearts" aria-hidden="true"></div>
+<main class="scene">
+ <div class="book-stage" id="book-stage">
+ <div class="book" id="book">
+  <div class="book-depth depth-right" aria-hidden="true"><div class="back-board"></div><div class="page-edge edge-side"></div><div class="page-edge edge-bottom"></div></div>
+  <div class="book-depth depth-left" aria-hidden="true"><div class="back-board"></div><div class="page-edge edge-bottom"></div></div>
+  <div class="binding" aria-hidden="true"></div>
+  <div class="paper left" id="left" aria-hidden="true"></div>
+  <div class="paper right" id="right"></div>
+  <div class="turn-shadow shadow-left" aria-hidden="true"></div>
+  <div class="turn-shadow shadow-right" aria-hidden="true"></div>
+  <div class="leaf" id="leaf" aria-hidden="true"><div class="leaf-face" id="leaf-front"></div><div class="leaf-face leaf-back" id="leaf-back"></div></div>
+  <button class="cover" id="cover" aria-label="Ouvrir notre livre"><span class="cover-heart">❤</span><h1>Notre première année</h1><em>Toi &amp; moi</em><span class="hint">Touche pour ouvrir</span></button>
+ </div>
+ </div>
+ <nav class="navigation" aria-label="Tourner les pages" hidden><button id="previous" aria-label="Page précédente">← Précédente</button><span id="position" aria-live="polite"></span><div class="progress" aria-hidden="true"><i></i></div><button id="next" aria-label="Page suivante">Suivante →</button></nav>
+ <div class="sound-controls" hidden><button id="music-toggle" type="button" aria-pressed="false" aria-label="Activer la musique">Musique : coupée</button><button id="sound-toggle" type="button" aria-pressed="true" aria-label="Couper le bruit des pages">Son des pages : activé</button></div>
+</main>
+<div id="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+ <div class="intro-card">
+  <section class="intro-step" id="step-theme">
+   <div class="intro-heart" aria-hidden="true">❤</div>
+   <h2 id="intro-title">Choisir un thème</h2>
+   <div class="theme-choices">
+    <button type="button" data-theme-choice="normal" aria-pressed="true"><i class="swatch swatch-normal" aria-hidden="true"></i><b>Normal</b></button>
+    <button type="button" data-theme-choice="retro" aria-pressed="false"><i class="swatch swatch-retro" aria-hidden="true"></i><b>Rétro</b></button>
+   </div>
+   <button type="button" class="intro-main" id="theme-next">Continuer</button>
+  </section>
+  <section class="intro-step" id="step-music" hidden>
+   <div class="intro-heart" aria-hidden="true">♫</div>
+   <h2>Un peu de musique ?</h2>
+   <p>Veux-tu la musique qui va avec le livre ?</p>
+   <p class="intro-small">(Je ne garantis pas que tu aimeras la musique mais sache que cette musique me fait devenir enormement nostalgique de nos moments. J'ai créer tout sa avec cette musique dans les oreilles. )</p>
+   <div class="intro-buttons">
+    <button type="button" class="intro-main" data-music-choice="yes">Oui, avec la musique</button>
+    <button type="button" class="intro-alt" data-music-choice="no">Non, sans musique</button>
+   </div>
+  </section>
+ </div>
+</div>
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo agrandie" hidden><button id="close-photo" aria-label="Fermer la photo">×</button><img alt="Notre souvenir"></div>
+<template id="letter-source"><div>
+     <p>Mon amour,</p>
+     <p>Un an avec toi. Quand j’y pense, je revois plein de petits moments, et je me rends compte à quel point tu as pris une place immense dans ma vie. Nos rires, nos câlins, nos discussions, nos délires que personne d’autre ne comprendrait… Tout ça, c’est nous. Et c’est ce que j’ai de plus précieux.</p>
+     <p>J’aime repenser aux moments où on rigole pour rien, où il suffit d’un regard pour qu’on se comprenne et qu’on reparte dans un fou rire. À nos bêtises, à nos photos, à ces instants où on ne fait rien de particulier, mais où je suis bien parce que tu es là. Parfois, j’aimerais pouvoir les revivre juste quelques minutes, retrouver exactement ce qu’on ressentait à ce moment-là.</p>
+     <p>Il y a aussi les moments qui m’ont fait peur. Je repense à cette fois où j’ai foncé dans les gaz lacrymogènes sans réfléchir, parce que j’avais peur pour toi et que je voulais te sortir de là. Je ne raconte pas ça pour faire le héros : j’étais terrifié à l’idée qu’il puisse t’arriver quelque chose. Avec le recul, ce que je veux, c’est qu’on puisse se protéger tous les deux et rentrer ensemble, en sécurité. Cette peur m’a fait sentir très fort la place que tu occupes dans mon cœur.</p>
+     <p>Mais surtout, quand je pense à notre année, c’est ton sourire que je veux garder en tête. Ton rire. Ta façon de me regarder. Le bonheur de te retrouver et de pouvoir te prendre dans mes bras. Tous ces détails qui peuvent paraître minuscules et qui, pour moi, font toute la différence.</p>
+     <p>On a aussi vécu des moments moins faciles. On n’a pas toujours les bons mots, on peut se comprendre de travers ou ne pas savoir comment dire ce qu’on ressent. Je sais que je ne suis pas parfait. Mais je veux apprendre à mieux t’écouter, à te comprendre et à te montrer que tu comptes pour moi, même dans les journées où je m’exprime moins bien.</p>
+     <p>C’est aussi pour ça que j’ai voulu écrire ces <span data-word-count>457</span> mots qui me font penser à toi. En les cherchant, je repense à ce que j’aime chez toi et à tout ce qu’on a vécu. Certains me font sourire, d’autres me rappellent un moment précis. Aucun ne dit tout à lui seul, mais chacun porte un petit morceau de ce que je ressens pour toi.</p>
+     <p>Tu es l’amour de ma vie. Et quand je t’écris ça, je pense autant aux souvenirs qu’on a déjà qu’à tout ce que j’ai envie de vivre avec toi. Voyager, découvrir des endroits, réaliser nos projets, mais aussi partager des journées toutes simples. Se raconter ce qui nous est arrivé, rire d’une connerie, choisir un film et profiter d’être ensemble.</p>
+     <p>Je ne peux pas te promettre qu’on aura toujours les réponses ou que tout sera facile. Je peux te dire que j’ai envie de faire les efforts nécessaires pour prendre soin de notre relation. De continuer à te découvrir, de respecter la personne que tu es et de te soutenir dans ce qui compte pour toi.</p>
+     <p>Merci pour cette première année. Merci pour ta tendresse, pour nos fous rires et pour la confiance que tu me donnes. J’espère que, quand tu repenseras à nous, tu ressentiras toi aussi cette chaleur que j’ai en repensant à tous nos moments.</p>
+     <p>Si je pouvais revenir au début de notre histoire, en sachant tout ce qu’on allait vivre, j’aurais toujours envie de venir vers toi.</p>
+     <p>Joyeux un an, mon amour. J’ai encore tellement de souvenirs à créer avec toi.</p>
+     <p>Je t’aime.</p>
+     <p>Ton amoureux ❤</p>
+    </div></template>
+<script src="script.js" defer></script>
+</body>
+</html>
