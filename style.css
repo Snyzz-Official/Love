@@ -288,3 +288,130 @@ html[data-theme=retro] .hearts span{color:#b0634f}
 html[data-theme=retro] .intro-card{box-shadow:0 28px 60px #000a,0 0 0 1px #c8a06a66,inset 0 0 0 6px var(--paper),inset 0 0 0 7px #c8a06a88}
 @media(max-width:760px){html[data-theme=retro] .letter{font-size:.95rem}}
 @media(max-height:520px){html[data-theme=retro] .letter{font-size:.82rem;line-height:1.35}}
+
+/* ===== FIX MOBILE iPhone / Safari =====
+   Le livre + les commandes utilisent le flux vertical au lieu de se superposer.
+   100svh garde tout visible même lorsque les barres Safari sont affichées. */
+@media (max-width: 760px) and (pointer: coarse) {
+  :root {
+    --mobile-vh: 100dvh;
+    --ph: min(600px, calc(var(--mobile-vh) - 205px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)));
+    --pw: min(calc(100vw - 28px), calc(var(--ph) * .70));
+  }
+
+  @supports (height: 100svh) {
+    :root { --mobile-vh: 100svh; }
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: var(--mobile-vh);
+    min-height: var(--mobile-vh);
+    overflow: hidden;
+  }
+
+  body {
+    padding: 0;
+  }
+
+  .scene {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: var(--mobile-vh);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    place-items: initial;
+    padding:
+      max(12px, env(safe-area-inset-top, 0px))
+      14px
+      calc(10px + env(safe-area-inset-bottom, 0px));
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .book-stage {
+    flex: 0 0 auto;
+    width: var(--pw);
+    height: var(--ph);
+    min-width: 0;
+    margin: 0;
+    transform: none;
+    will-change: auto;
+  }
+
+  .book,
+  .book.open {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    transform: none;
+  }
+
+  .navigation {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: min(430px, calc(100vw - 28px));
+    transform: none;
+    margin: 14px 0 0;
+    flex: 0 0 auto;
+    gap: 8px;
+  }
+
+  .navigation button {
+    padding: 9px 11px;
+    font-size: .9rem;
+  }
+
+  .sound-controls {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    margin: 10px 0 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    flex: 0 0 auto;
+  }
+
+  .sound-controls button {
+    min-height: 30px;
+    padding: 2px 8px;
+    font-size: .78rem;
+  }
+
+  .progress {
+    bottom: -7px;
+  }
+}
+
+/* Petits iPhone / paysage : on réduit encore le livre. */
+@media (max-width: 760px) and (pointer: coarse) and (max-height: 700px) {
+  :root {
+    --ph: min(500px, calc(var(--mobile-vh) - 170px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)));
+  }
+
+  .scene {
+    padding-top: max(8px, env(safe-area-inset-top, 0px));
+  }
+
+  .navigation {
+    margin-top: 10px;
+  }
+
+  .sound-controls {
+    margin-top: 7px;
+  }
+}
